@@ -1,8 +1,8 @@
 {
-  "name": "@defiance-digital/cdk-git-tagger",
+  "name": "@layerborn/cdk-aspect-git-tagger",
   "repository": {
     "type": "git",
-    "url": "https://github.com/Defiance-Digital/cdk-git-tagger.git"
+    "url": "https://github.com/layerborn/cdk-aspect-git-tagger.git"
   },
   "scripts": {
     "build": "npx projen build",
@@ -28,7 +28,7 @@
   },
   "author": {
     "name": "Jayson Rawlins",
-    "email": "jayson.rawlins@defiance.ai",
+    "email": "jayson.rawlins@layerborn.io",
     "organization": false
   },
   "devDependencies": {
