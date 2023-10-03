@@ -3,14 +3,14 @@ import { NpmAccess } from 'projen/lib/javascript';
 
 const project = new awscdk.AwsCdkConstructLibrary({
   author: 'Jayson Rawlins',
-  authorAddress: 'jayson.rawlins@defiance.ai',
+  authorAddress: 'jayson.rawlins@layerborn.io',
   cdkVersion: '2.30.0',
   defaultReleaseBranch: 'main',
   jsiiVersion: '~5.0.0',
-  name: '@defiance-digital/cdk-git-tagger',
+  name: '@layerborn/cdk-aspect-git-tagger',
   npmAccess: NpmAccess.PUBLIC,
   projenrcTs: true,
-  repositoryUrl: 'https://github.com/Defiance-Digital/cdk-git-tagger.git',
+  repositoryUrl: 'https://github.com/layerborn/cdk-aspect-git-tagger.git',
   githubOptions: {
     mergify: false,
     pullRequestLint: true,
