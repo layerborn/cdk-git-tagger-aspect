@@ -39,7 +39,7 @@
   "devDependencies": {
     "@types/jest": "^29.5.2",
     "@types/mock-fs": "^4.13.1",
-    "@types/node": "^16",
+    "@types/node": "^18",
     "@typescript-eslint/eslint-plugin": "^5",
     "@typescript-eslint/parser": "^5",
     "aws-cdk-lib": "2.30.0",
@@ -69,6 +69,9 @@
   "keywords": [
     "cdk"
   ],
+  "engines": {
+    "node": ">= 18.0.0"
+  },
   "main": "lib/index.js",
   "license": "Apache-2.0",
   "publishConfig": {
@@ -125,7 +128,7 @@
         "module": "layerborn.cdk_git_tagger"
       },
       "go": {
-        "moduleName": "github.com/layerborn/cdk-git-tagger-go"
+        "moduleName": "github.com/layerborn/cdk-git-tagger-aspect.git"
       }
     },
     "tsc": {

@@ -8,6 +8,7 @@ const project = new awscdk.AwsCdkConstructLibrary({
   authorAddress: 'jayson.rawlins@layerborn.io',
   cdkVersion: '2.30.0',
   defaultReleaseBranch: 'main',
+  minNodeVersion: '18.0.0',
   jsiiVersion: '~5.0.0',
   name: '@layerborn/cdk-git-tagger',
   npmAccess: NpmAccess.PUBLIC,
@@ -42,7 +43,7 @@ const project = new awscdk.AwsCdkConstructLibrary({
     module: 'layerborn.cdk_git_tagger',
   },
   publishToGo: {
-    moduleName: 'github.com/layerborn/cdk-git-tagger-go',
+    moduleName: 'github.com/layerborn/cdk-git-tagger-aspect.git',
   },
   devDeps: ['@types/mock-fs', 'mock-fs'],
 });
