@@ -128,7 +128,7 @@
         "module": "layerborn.cdk_git_tagger"
       },
       "go": {
-        "moduleName": "github.com/layerborn/cdk-git-tagger-aspect.git"
+        "moduleName": "github.com/layerborn/cdk-git-tagger-aspect"
       }
     },
     "tsc": {

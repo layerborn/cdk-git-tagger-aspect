@@ -43,7 +43,7 @@ const project = new awscdk.AwsCdkConstructLibrary({
     module: 'layerborn.cdk_git_tagger',
   },
   publishToGo: {
-    moduleName: 'github.com/layerborn/cdk-git-tagger-aspect.git',
+    moduleName: 'github.com/layerborn/cdk-git-tagger-aspect',
   },
   devDeps: ['@types/mock-fs', 'mock-fs'],
 });
