@@ -6,19 +6,19 @@ deployed stacks.
 ### How to install
 
 ```shell
-npm install @defiance-digital/cdk-git-tagger
+npm install @layerborn/cdk-git-tagger
 ```
 
 or
 
 ```shell
-yarn add @defiance-digital/cdk-git-tagger
+npm install @layerborn/cdk-git-tagger
 ```
 
 ### How to use
 
 ```typescript
-import { GitUrlTagger } from '@defiance-digital/cdk-git-tagger';
+import { GitUrlTagger } from '@layerborn/cdk-git-tagger';
 import { App, Aspects, Stack, StackProps } from 'aws-cdk-lib';
 import { Topic } from 'aws-cdk-lib/aws-sns';
 import { Construct } from 'constructs';
@@ -33,7 +33,7 @@ export class MyStack extends Stack {
 
 const app = new App();
 
-new MyStack(app, 'cdk-aspect-git-tagger-tester-dev');
+new MyStack(app, 'cdk-aspect-git-tagger-tester');
 Aspects.of(app).add(new GitUrlTagger());
 app.synth();
 ```
@@ -49,7 +49,7 @@ app.synth();
         "Tags": [
           {
             "Key": "GitUrl",
-            "Value": "https://github.com/defiance-digital/cdk-aspect-git-tagger-test.git"
+            "Value": "https://github.com/layerborn/cdk-cool-construct.git"
           }
         ]
       }
