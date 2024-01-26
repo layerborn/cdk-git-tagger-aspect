@@ -1,4 +1,5 @@
-import { awscdk } from 'projen';
+import { awscdk, github } from 'projen';
+import { GithubCredentials } from 'projen/lib/github';
 import { NpmAccess } from 'projen/lib/javascript';
 
 const project = new awscdk.AwsCdkConstructLibrary({
@@ -15,8 +16,27 @@ const project = new awscdk.AwsCdkConstructLibrary({
   githubOptions: {
     mergify: true,
     pullRequestLint: true,
+    projenCredentials: GithubCredentials.fromApp({
+      permissions: {
+        pullRequests: github.workflows.AppPermission.WRITE,
+        contents: github.workflows.AppPermission.WRITE,
+        workflows: github.workflows.AppPermission.WRITE,
+      },
+    }),
   },
   depsUpgrade: true,
+  depsUpgradeOptions: {
+    workflowOptions: {
+      projenCredentials: GithubCredentials.fromApp({
+        permissions: {
+          pullRequests: github.workflows.AppPermission.WRITE,
+          contents: github.workflows.AppPermission.WRITE,
+          workflows: github.workflows.AppPermission.WRITE,
+        },
+      }),
+    },
+  },
+
   publishToPypi: {
     distName: 'layerborn.cdk-git-tagger',
     module: 'layerborn.cdk_git_tagger',
@@ -26,5 +46,8 @@ const project = new awscdk.AwsCdkConstructLibrary({
   },
   devDeps: ['@types/mock-fs', 'mock-fs'],
 });
+
+project.github!.tryFindWorkflow('build')!.file!.addOverride('jobs.build.permissions.id-token', 'write');
+project.github!.tryFindWorkflow('upgrade-main')!.file!.addOverride('jobs.upgrade.permissions.id-token', 'write');
 
 project.synth();
