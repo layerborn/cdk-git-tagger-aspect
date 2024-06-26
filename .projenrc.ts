@@ -5,7 +5,7 @@ import { NpmAccess } from 'projen/lib/javascript';
 const project = new awscdk.AwsCdkConstructLibrary({
   author: 'Jayson Rawlins',
   description: 'CDK Aspect to tag resources with git metadata.  This provides a nice connection between the construct and the git repository.',
-  authorAddress: 'jayson.rawlins@layerborn.io',
+  authorAddress: 'JaysonJ.Rawlins@gmail.com',
   cdkVersion: '2.30.0',
   defaultReleaseBranch: 'main',
   minNodeVersion: '18.0.0',
@@ -15,8 +15,8 @@ const project = new awscdk.AwsCdkConstructLibrary({
   projenrcTs: true,
   repositoryUrl: 'https://github.com/layerborn/cdk-git-tagger-aspect.git',
   githubOptions: {
-    mergify: true,
-    pullRequestLint: true,
+    mergify: false,
+    pullRequestLint: false,
     projenCredentials: GithubCredentials.fromApp({
       permissions: {
         pullRequests: github.workflows.AppPermission.WRITE,
@@ -25,19 +25,7 @@ const project = new awscdk.AwsCdkConstructLibrary({
       },
     }),
   },
-  depsUpgrade: true,
-  depsUpgradeOptions: {
-    workflowOptions: {
-      projenCredentials: GithubCredentials.fromApp({
-        permissions: {
-          pullRequests: github.workflows.AppPermission.WRITE,
-          contents: github.workflows.AppPermission.WRITE,
-          workflows: github.workflows.AppPermission.WRITE,
-        },
-      }),
-    },
-  },
-
+  depsUpgrade: false,
   publishToPypi: {
     distName: 'layerborn.cdk-git-tagger',
     module: 'layerborn.cdk_git_tagger',
@@ -49,6 +37,4 @@ const project = new awscdk.AwsCdkConstructLibrary({
 });
 
 project.github!.tryFindWorkflow('build')!.file!.addOverride('jobs.build.permissions.id-token', 'write');
-project.github!.tryFindWorkflow('upgrade-main')!.file!.addOverride('jobs.upgrade.permissions.id-token', 'write');
-
 project.synth();
